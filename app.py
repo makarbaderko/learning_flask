@@ -17,11 +17,18 @@ def home():
             <p>Hello Flask!</p>
         <body>
     </html>
+
+    <script>
+        alert("Wow")
+    </script>
     '''
 
 @app.route("/albums/<album_number>/<song_number>")
 def albums(album_number, song_number):
     return "The {} album and {} song.".format(album_number, song_number)
 
+@app.route("/test")
+def test():
+    return render_template("index")
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5000)
+    app.run(host="127.0.0.1", port=5000, debug=True)
